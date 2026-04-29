@@ -1,0 +1,97 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'New Roman', sans-serif;
+
+}
+body{
+    background:  linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+.login-container{
+    background: rgba(255, 255, 255, 0.05);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:0 15px 35px rgba(0,0,0,0.5);
+    text-align:center;
+}
+.logo{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+h2{
+    color:#ff8c00;
+    margin-bottom:5px;
+
+}
+p{
+    color:#bdc3c7;
+    font-size:0.9rem;
+    margin-bottom:30px;
+
+}
+.input-group{
+    margin-bottom:20px;
+    text-align:left;
+}
+.input-group label{
+    display:block;
+    margin-bottom:5px;
+    color:#3498db;
+    margin-left:5px;
+    font-size:0.85rem;
+}
+.input-group input{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid rgba(255, 255, 255, 0.2);
+    border-radius:10px;
+    background:rgba(255, 255, 255, 0.1);
+    color:white;
+    outline:none;
+    transition: 0.3s;
+}
+.input-group input:focus {
+    border-color: #ff8c00; /* Fokus ke Orange */
+    background: rgba(255, 255, 255, 0.15);
+}
+.btn-login{
+    width:100%;
+    padding:12px;
+    background-color: #3498db;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.3s;
+    margin-top:10px;
+}
+.btn-login:hover {
+    background: #ff8c00; /* Hover berubah jadi Orange */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+}
+.login-footer a{
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+
+}
+.login-footer a:hover {
+    color: #ff8c00;
+}
+.alert {
+    background: #e74c3c;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+}
