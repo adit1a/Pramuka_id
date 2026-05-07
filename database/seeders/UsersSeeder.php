@@ -12,6 +12,12 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\User::create([
+            'username'=>'admin',
+            'email'=>'admin@gmail.com',
+            'password'=>bcrypt('admin123'),
+            'verification_code'=>'654321',
+            'email_verified_at'=>now(),
+        ]);
     }
 }

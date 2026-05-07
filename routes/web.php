@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AnggotaController;
+use App\Models\Anggota;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +37,17 @@ Route::post('/verify', [AuthController::class, 'processVerify']);
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'processLogin']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/form', function (){
+    return view('form');
+});
+
+Route::post('/simpan-anggota', [AnggotaController::class, 'store']);
+
+Route::get('/', function(){
+    $anggota = Anggota::first();
+    return view('beranda', compact('anggota'));
+});
+
+Route::get('/edit-anggota/{id}', [AnggotaController::class, 'edit'])->name('anggota.edit');
+Route::put('/update-anggota/{id}', [AnggotaController::class, 'update'])->name('anggota.update');
