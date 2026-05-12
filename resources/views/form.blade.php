@@ -32,10 +32,10 @@
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
-                <li>{{ error }}</li>
+                <li>{{ $error }}</li>
                 @endforeach
             </ul>
-        </div> 
+        </div>
     @endif       
             <form action="{{ isset($anggota) ? route('anggota.update', $anggota->id) : '/simpan-anggota' }}" method="POST" enctype="multipart/form-data">
                 @csrf

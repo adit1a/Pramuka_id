@@ -77,9 +77,7 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
-    </footer>
+    
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarProfil" aria-labelledby="sidebarProfilLabel">
         <div class="offcanvas-header text-white">
@@ -122,6 +120,97 @@
                     <a href="/form-anggota" class="btn btn-primary btn-sm rounded-pill">Isi Form 🚀</a>
                 </div>
             @endif
+        </div>
+    </div>
+    <section class="ontopfoot py-5">
+    <div class="container card-ontop shadow-sm p-4 p-md-5">
+        <div class="row g-4">
+            
+            <div class="col-lg-4 col-md-12">
+                <div class="d-flex align-items-center mb-4">
+                    <img src="{{ asset('img/gambar.jpeg.jpeg') }}" alt="Logo" style="width: 80px;" class="me-3">
+                    <h2 class="fw-bold mb-0">Raimuna Cabang III Kolaka Utara</h2>
+                </div>
+                <h5 class="text-danger fw-bold">Sejarah Singkat</h5>
+                <h6 class="text-primary fw-bold small">Awal Mula</h6>
+                <p class="text-justify text-muted small">Jambore adalah pertemuan besar Pramuka di alam terbuka yang diisi dengan kegiatan edukatif, rekreatif, dan produktif. Tradisi jambore berakar dari gerakan kepanduan dunia yang dipelopori oleh Lord Robert Baden-Powell melalui World Scout Jamboree pertama tahun 1920 di Olympia, London. Pertemuan itu melibatkan puluhan ribu pandu dari berbagai negara dan menjadi tonggak lahirnya jambore sebagai ajang silaturahmi dan pembelajaran kepanduan.</p>
+            </div>
+
+            
+            <div class="col-lg-4 col-md-12 text-center">
+                <div class="d-flex flex-column align-items-center mb-3">
+                    <div class="circle-icon bg-orange">
+                        <i class="fas fa-binoculars fa-2x text-white"></i>
+                        <span class="d-block text-white fw-bold small mt-1">VISI</span>
+                    </div>
+                    <span class="badge bg-orange mt-3 px-4 py-2">VISI</span>
+                </div>
+                <p class="fst-italic fw-bold small text-center px-lg-3">"TERWUJUDNYA PRAMUKA PENGGALANG SULAWESI TENGGARA YANG GEMBIRA, BERDAYA, DAN BERBUDAYA MELALUI PERTEMUAN BESAR JAMBORE DAERAH SEBAGAI WADAH PERSAUDARAAN, PENGEMBANGAN DIRI, SERTA PENGUATAN KARAKTER BANGSA."</p>
+            </div>
+
+            
+            <div class="col-lg-4 col-md-12 text-center">
+                <div class="d-flex flex-column align-items-center mb-3">
+                    <div class="circle-icon bg-blue">
+                        <i class="fas fa-rocket fa-2x text-white"></i>
+                        <span class="d-block text-white fw-bold small mt-1">MISI</span>
+                    </div>
+                    <span class="badge bg-blue mt-3 px-4 py-2">MISI</span>
+                </div>
+                <ol class="text-start small text-muted ps-3">
+                    <li>Menumbuhkan keceriaan dan semangat kebersamaan.</li>
+                    <li>Meningkatkan kemandirian dan keterampilan.</li>
+                    <li>Melestarikan dan mengembangkan budaya lokal.</li>
+                    <li>Memperkuat persaudaraan antar kwartir cabang.</li>
+                    <li>Mendorong kepedulian terhadap lingkungan.</li>
+                </ol>
+            </div>
+        </div>
+    </div> 
+</section>
+<section class="formulir-online py-5 " style="background-color:#eee">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 mb-5 mb-lg-0 text-center text-lg-start">
+                <h1 class="fw-bold display-4 mb-3">Formulir <br> Online</h1>
+                <p class="text-muted mb-4 mb-3">Pilih formulir sesuai kategori Anda dan lengkapi data dengan mudah melalui Google Forms</p>
+                <img src="{{ asset('img/gambar.jpeg.jpeg') }}" alt="Logo Jamda" style="width: 120px;">
+            </div>
+            <div class="col-lg-8">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4 col-sm-6">
+            <div class="card-form shadow-sm text-white" style="background-color: #8e44ad;">
+                <div class="card-body p-4 text-center">
+           
+                     <i class="fas fa-plus-circle float-end opacity-50"></i>
+                    <h3 class="fw-bold mt-3">Form</h3>
+                    <p class="small mb-4">Formulir Peserta</p>
+                     <a href="https://forms.gle/JJYC4oHDv16N2iVY7" 
+                     target="_blank" 
+                    class="btn btn-light btn-isi rounded-pill px-4 fw-bold">
+                    Tolong Isi
+                    </a>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card-form shadow-sm text-white" style="background-color: #008891;">
+                            <div class="card-body p-4 text-center">
+                                <i class="fas fa-plus-circle float-end opacity-50"></i>
+                                <h3 class="fw-bold mt-3">Form </h3>
+                                <p class="small mb-4">Formulir Pembina</p>
+                                <a href="https://forms.gle/CXhzRsbiAcAeJiy96" target="_blank" class="btn btn-light btn-isi rounded-pill px-4 fw-bold">ISI FORMULIR</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <footer>
+        <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
+    </footer>          
         </div>
     </div>
 
