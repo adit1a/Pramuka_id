@@ -208,12 +208,78 @@
         </div>
     </div>
 </section>
-    <footer>
-        <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
-    </footer>          
+<!-- 1. Panggil Library di Atas -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<section class="scan-achievement py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow border-0 text-center p-4" style="border-radius: 25px;">
+                    <div class="card-body">
+                        <div class="icon-scan mb-3">
+                            <i class="fas fa-qrcode fa-4x text-primary"></i>
+                        </div>
+                        <h3 class="fw-bold">Scan Achievement</h3>
+                        <p class="text-muted">Dekatkan kamera ke QR Code kegiatan untuk mencatat kehadiran atau pencapaianmu.</p>
+                        
+                        <button class="btn btn-primary btn-lg rounded-pill px-5 fw-bold" onclick="startScanner()">
+                            <i class="fas fa-camera me-2"></i> Buka Kamera
+                        </button>
+
+                        <div id="reader" class="mt-4 shadow-sm" style="display:none; border-radius: 15px; overflow: hidden;"></div>
+                        
+                        <button id="stop-scan" class="btn btn-danger mt-3 rounded-pill" style="display:none;" onclick="stopScanner()">
+                            Tutup Kamera
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<footer>
+    <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
+</footer>
+
+<!-- 2. Panggil Library Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- 3. Buat Tag Script BARU untuk Logika Scanner -->
+<script>
+    let html5QrCode;
+
+    function startScanner() {
+        document.getElementById('reader').style.display = 'block';
+        document.getElementById('stop-scan').style.display = 'inline-block';
+
+        html5QrCode = new Html5Qrcode("reader");
+        
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+            console.log(`Code scanned = ${decodedText}`, decodedResult);
+            stopScanner();
+            alert("Berhasil Scan: " + decodedText);
+        };
+
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+        html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback)
+        .catch((err) => {
+            alert("Gagal membuka kamera: " + err);
+        });
+    }
+
+    function stopScanner() {
+        if (html5QrCode) {
+            html5QrCode.stop().then(() => {
+                document.getElementById('reader').style.display = 'none';
+                document.getElementById('stop-scan').style.display = 'none';
+            }).catch((err) => {
+                console.error("Gagal stop scanner", err);
+            });
+        }
+    }
+</script>
 </body>
 </html>
