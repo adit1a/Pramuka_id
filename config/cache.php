@@ -51,8 +51,10 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'path' => storage_path('framework/cache/data'),
             'lock_path' => storage_path('framework/cache/data'),
+            'path' => env('APP_ENV') === 'production' 
+                  ? '/tmp/storage/framework/cache/data' 
+                  : storage_path('framework/cache/data'),
         ],
 
         'memcached' => [
