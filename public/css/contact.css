@@ -1,0 +1,67 @@
+/* Reset Body jika tidak ada layout utama */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Navigasi */
+.nav-header {
+    background-color: #2c3e50;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-spacer { width: 150px; }
+
+.back-link-header {
+    color: #ffffff !important;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.back-link-header:hover { color: #8b5cf6 !important; }
+
+/* Wrapper Utama agar Konten di Tengah */
+.contact-wrapper {
+    min-height: calc(100vh - 70px); /* Memenuhi layar dikurangi tinggi nav */
+    display: flex;
+    align-items: center; /* Tengah vertikal */
+}
+
+/* Card Panitia */
+.card-panitia {
+    background: #fff;
+    border-radius: 30px;
+    border: 2px solid #000;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.profile-wrapper img {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-wa-purple {
+    background-color: #8b5cf6;
+    color: #000 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    border-top: 2px solid #000;
+    margin-top: auto;
+}

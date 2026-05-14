@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\ActivityController;
 use App\Models\Anggota;
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,11 @@ Route::get('/register', function(){
     return view('register');
 })->name('register');
 
+Route::get('/contactUs', function(){
+    return view('contactUs');
+});
+
+
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'processRegister']);
 Route::get('/verify', [AuthController::class, 'showVerify'])->name('verify.page');
@@ -51,3 +57,6 @@ Route::get('/', function(){
 
 Route::get('/edit-anggota/{id}', [AnggotaController::class, 'edit'])->name('anggota.edit');
 Route::put('/update-anggota/{id}', [AnggotaController::class, 'update'])->name('anggota.update');
+
+Route::get('/achievement', [ActivityController::class, 'index']);
+Route::post('/process-scan', [ActivityController::class, 'processScan'])->name('process.scan');

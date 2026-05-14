@@ -115,4 +115,8 @@ public function showLogin()
 {
     return view('login'); 
 }
+public function contactUs()
+{
+    return view('/contactUS');
+}
 }

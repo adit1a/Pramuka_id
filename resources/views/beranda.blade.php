@@ -24,8 +24,8 @@
             <ul class="nav-menu mb-0">
                 <li><a href="/">Home</a></li>
                 <li><a href="/form">Form</a></li>
-                <li><a href="#achievement">Achievement</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="/achievement">Achievement</a></li>
+                <li><a href="{{ url('/contactUs') }}" class="nav-link">Contact Us</a></li>
                 <li>
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Log out
@@ -238,6 +238,8 @@
         </div>
     </div>
 </section>
+
+
 
 <footer>
     <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
