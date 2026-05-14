@@ -226,12 +226,27 @@
                         <button class="btn btn-primary btn-lg rounded-pill px-5 fw-bold" onclick="startScanner()">
                             <i class="fas fa-camera me-2"></i> Buka Kamera
                         </button>
-
+                        <div class="mb-3">
+                            <span class="badge bg-light text-muted">ATAU</span>
+                        </div>
+                        <div class="mx-auto" style="max-width: 300px;">
+                        <label for="qr-input-file" class="form-label small fw-bold text-muted">Upload Gambar QR dari Galeri</label>
+                        <input type="file" id="qr-input-file" accept="image/*" class="form-control form-control-sm rounded-pill">
+                        </div>
+                        <div id="reader" class="mt-4 shadow-sm" style="display:none; border-radius: 15px; overflow: hidden;"></div>
                         <div id="reader" class="mt-4 shadow-sm" style="display:none; border-radius: 15px; overflow: hidden;"></div>
                         
                         <button id="stop-scan" class="btn btn-danger mt-3 rounded-pill" style="display:none;" onclick="stopScanner()">
                             Tutup Kamera
                         </button>
+
+                        <!-- FORM TERSEMBUNYI UNTUK KIRIM KE DATABASE -->
+                        <form id="qr-form-beranda" action="{{ route('process.scan') }}" method="POST" style="display: none;">
+                            @csrf
+                            <input type="hidden" name="event_name" id="beranda_event_name">
+                            <input type="hidden" name="category" id="beranda_category">
+                            <input type="hidden" name="achievement" id="beranda_achievement">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -251,34 +266,67 @@
 <!-- 3. Buat Tag Script BARU untuk Logika Scanner -->
 <script>
     let html5QrCode;
+    const qrForm = document.getElementById('qr-form-beranda');
 
+    // Inisialisasi library saat halaman dimuat
+    window.onload = () => {
+        html5QrCode = new Html5Qrcode("reader");
+    };
+
+    // FUNGSI 1: SCAN VIA KAMERA
     function startScanner() {
         document.getElementById('reader').style.display = 'block';
         document.getElementById('stop-scan').style.display = 'inline-block';
 
-        html5QrCode = new Html5Qrcode("reader");
-        
-        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
+        const qrCodeSuccessCallback = (decodedText) => {
+            handleScanResult(decodedText);
             stopScanner();
-            alert("Berhasil Scan: " + decodedText);
         };
 
         const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-
         html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback)
-        .catch((err) => {
-            alert("Gagal membuka kamera: " + err);
-        });
+        .catch(err => alert("Gagal membuka kamera: " + err));
+    }
+
+    // FUNGSI 2: SCAN VIA UPLOAD FILE
+    const fileInput = document.getElementById('qr-input-file');
+    fileInput.addEventListener('change', e => {
+        if (e.target.files.length == 0) return;
+
+        const imageFile = e.target.files[0];
+        // Scan file gambar
+        html5QrCode.scanFile(imageFile, true)
+            .then(decodedText => {
+                handleScanResult(decodedText);
+            })
+            .catch(err => {
+                alert("QR Code tidak ditemukan pada gambar. Pastikan gambar jelas.");
+                console.error(err);
+            });
+    });
+
+    // FUNGSI 3: PROSES DATA (Dipakai oleh Kamera & File)
+    function handleScanResult(decodedText) {
+        // Format: Nama Kegiatan|Kategori|Achievement
+        const data = decodedText.split('|');
+
+        if(data.length === 3) {
+            document.getElementById('beranda_event_name').value = data[0];
+            document.getElementById('beranda_category').value = data[1];
+            document.getElementById('beranda_achievement').value = data[2];
+
+            alert("Berhasil membaca data: " + data[0]);
+            qrForm.submit();
+        } else {
+            alert("Format QR tidak valid! Gunakan pemisah '|' (Contoh: Lomba|Teknis|Juara)");
+        }
     }
 
     function stopScanner() {
-        if (html5QrCode) {
+        if (html5QrCode && html5QrCode.isScanning) {
             html5QrCode.stop().then(() => {
                 document.getElementById('reader').style.display = 'none';
                 document.getElementById('stop-scan').style.display = 'none';
-            }).catch((err) => {
-                console.error("Gagal stop scanner", err);
             });
         }
     }
