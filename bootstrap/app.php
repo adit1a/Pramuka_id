@@ -52,5 +52,5 @@ $app->singleton(
 |
 */
 $app->useStoragePath(env('APP_STORAGE', '/tmp/storage'));
-$app->setBootstrapCachePath(env('BOOTSTRAP_CACHE_PATH', '/tmp/storage/bootstrap/cache'));
+
 return $app;

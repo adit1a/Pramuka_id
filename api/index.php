@@ -12,3 +12,15 @@ foreach ($storageFolders as $folder) {
 }
 
 require __DIR__ . '/../public/index.php';
+
+$app->bind('path.config', function () {
+    return '/tmp/storage/bootstrap/cache';
+});
+
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+)->send();
+
+$kernel->terminate($request, $response);
