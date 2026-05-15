@@ -27,5 +27,6 @@ foreach ($folders as $folder) {
     }
 }
 
+echo "PUBLIC INDEX LOADED";
+require_once __DIR__.'/../vendor/autoload.php';
 
-require __DIR__ . '/../public/index.php';
