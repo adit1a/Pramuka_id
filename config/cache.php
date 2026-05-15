@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Str;
 
+if (!is_dir('/tmp/storage/framework/cache/data')) {
+    mkdir('/tmp/storage/framework/cache/data', 0777, true);
+}
 return [
 
     /*
@@ -48,6 +51,8 @@ return [
             'connection' => null,
             'lock_connection' => null,
         ],
+
+        'path' => storage_path('framework/cache/data'),
 
         'file' => [
             'driver' => 'file',

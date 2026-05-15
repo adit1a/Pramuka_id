@@ -26,6 +26,8 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+$app->useStoragePath('/tmp/storage');
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
@@ -63,9 +65,9 @@ $app->singleton(
 |
 */
 
-$app->useStoragePath('/tmp/storage');
 
-$app->instance('path.storage', '/tmp/storage');
+
+
 
 
 return $app;
