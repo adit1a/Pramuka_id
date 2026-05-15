@@ -51,6 +51,8 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
-$app->useStoragePath(env('APP_STORAGE', '/tmp/storage'));
+if (env('APP_ENV') === 'production') {
+    $app->useStoragePath('/tmp/storage');
+}
 
 return $app;
