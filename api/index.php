@@ -52,4 +52,5 @@ try {
     echo $e->getMessage();
     die();
 }
+return $app;
 
