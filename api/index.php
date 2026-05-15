@@ -46,11 +46,32 @@ try {
 
     echo "BOOTSTRAP OK<br>";
 
+    $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+    $response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+}
+try {
+
+    $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+    $response = $kernel->handle(
+        $request = Illuminate\Http\Request::capture()
+    );
+
+    echo "KERNEL OK<br>";
+
+    $response->send();
+
+    $kernel->terminate($request, $response);
+
 } catch (Throwable $e) {
 
-    echo "BOOTSTRAP ERROR:<br>";
+    echo "KERNEL ERROR:<br>";
     echo $e->getMessage();
-    die();
+    echo "<br><br>";
+    echo $e->getTraceAsString();
 }
 return $app;
 
