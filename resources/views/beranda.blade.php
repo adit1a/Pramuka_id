@@ -40,13 +40,18 @@
     </form>
 
     <header class="hero">
-        <div class="hero-content">
-            <h1>Halo, {{ Auth::user()?->username ?? 'Tamu' }}! 👋</h1>
-            <h2>Satu Pramuka, Untuk Satu Indonesia</h2>
-            <p class="pp">Mari kita bangun karakter pramuka yang kuat dan bermoral</p>
-            <a href="#main" class="btn-hero">Jelajahi Sekarang</a>
-        </div>
-    </header>
+    <div class="hero-content">
+        @auth
+            <h1>Halo, {{ Auth::user()->username }}! 👋</h1>
+        @else
+            <h1>Halo, Selamat Datang! 👋</h1>
+        @endauth
+        
+        <h2>Satu Pramuka, Untuk Satu Indonesia</h2>
+        <p class="pp">Mari kita bangun karakter pramuka yang kuat dan bermoral</p>
+        <a href="#main" class="btn-hero">Jelajahi Sekarang</a>
+    </div>
+</header>
 
     <main id="main">
         <section class="headline">
