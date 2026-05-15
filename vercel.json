@@ -1,8 +1,8 @@
 {
-    "version": 2,
-    "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.7.1" }
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.0"
+        }
     },
     "env": {
     "APP_ENV": "production",
@@ -13,10 +13,6 @@
     "VIEW_COMPILED_PATH": "/tmp/storage/framework/views"
 },
     "routes": [
-        {
-            "src": "/(css|img|js|uploads)/(.*)",
-            "dest": "/public/$1/$2"
-        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
