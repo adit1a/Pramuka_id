@@ -29,38 +29,23 @@ foreach ($folders as $folder) {
 
 try {
 
-    require __DIR__.'/../vendor/autoload.php';
+    require __DIR__ . '/../vendor/autoload.php';
 
     echo "AUTOLOAD OK<br>";
 
-} catch (Throwable $e) {
-
-    echo "AUTOLOAD ERROR:<br>";
-    echo $e->getMessage();
-    die();
-}
-
-try {
-
-    $app = require_once __DIR__.'/../bootstrap/app.php';
+    $app = require_once __DIR__ . '/../bootstrap/app.php';
 
     echo "BOOTSTRAP OK<br>";
 
     $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-    $response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
-}
-try {
-
-    $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
-
-    $response = $kernel->handle(
-        $request = Illuminate\Http\Request::capture()
-    );
-
     echo "KERNEL OK<br>";
+
+    $request = Illuminate\Http\Request::capture();
+
+    $response = $kernel->handle($request);
+
+    echo "RESPONSE OK<br>";
 
     $response->send();
 
@@ -68,10 +53,26 @@ try {
 
 } catch (Throwable $e) {
 
-    echo "KERNEL ERROR:<br>";
+    echo "<h1>ERROR</h1>";
+
+    echo "<b>Message:</b><br>";
     echo $e->getMessage();
+
     echo "<br><br>";
+
+    echo "<b>File:</b><br>";
+    echo $e->getFile();
+
+    echo "<br><br>";
+
+    echo "<b>Line:</b><br>";
+    echo $e->getLine();
+
+    echo "<br><br>";
+
+    echo "<pre>";
     echo $e->getTraceAsString();
+    echo "</pre>";
 }
 return $app;
 
