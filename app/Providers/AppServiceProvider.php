@@ -10,12 +10,10 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register()
-{
-    $this->app->bind('path.public', function() {
-        return base_path('public');
-    });
-}
+    public function register(): void
+    {
+        // Pastikan kurung tutup ini ada
+    }
 
     /**
      * Bootstrap any application services.
@@ -24,5 +22,6 @@ class AppServiceProvider extends ServiceProvider
     {
         if (env('APP_ENV') === 'production') {
             URL::forceScheme('https');
+        }
     }
 }
