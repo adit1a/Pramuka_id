@@ -1,5 +1,16 @@
 <?php
+if (isset($_SERVER['VERCEL_URL'])) {
+    // Paksa folder cache pindah ke /tmp agar tidak error writable
+    $cachePath = '/tmp/storage/bootstrap/cache';
+    if (!is_dir($cachePath)) {
+        mkdir($cachePath, 0777, true);
+    }
 
+    $app->useStoragePath('/tmp/storage');
+    $app->bind('path.bootstrap', function () {
+        return '/tmp/storage/bootstrap';
+    });
+}
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -57,6 +68,6 @@ if (env('APP_ENV') === 'production') {
     $app->useStoragePath('/tmp/storage');
 }
 
-$app->useStoragePath('/tmp/storage');
+
 
 return $app;
