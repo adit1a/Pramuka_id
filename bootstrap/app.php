@@ -63,11 +63,9 @@ $app->singleton(
 |
 */
 
+$app->useStoragePath(env('APP_STORAGE', base_path('storage')));
 
-if (env('APP_ENV') === 'production') {
-    $app->useStoragePath('/tmp/storage');
-}
-
+$app->bootstrapPath('/tmp/storage/bootstrap');
 
 
 return $app;
