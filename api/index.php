@@ -27,6 +27,29 @@ foreach ($folders as $folder) {
     }
 }
 
-echo "PUBLIC INDEX LOADED";
-require_once __DIR__.'/../vendor/autoload.php';
+try {
+
+    require __DIR__.'/../vendor/autoload.php';
+
+    echo "AUTOLOAD OK<br>";
+
+} catch (Throwable $e) {
+
+    echo "AUTOLOAD ERROR:<br>";
+    echo $e->getMessage();
+    die();
+}
+
+try {
+
+    $app = require_once __DIR__.'/../bootstrap/app.php';
+
+    echo "BOOTSTRAP OK<br>";
+
+} catch (Throwable $e) {
+
+    echo "BOOTSTRAP ERROR:<br>";
+    echo $e->getMessage();
+    die();
+}
 
