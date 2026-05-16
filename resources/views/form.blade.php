@@ -22,21 +22,24 @@
 
     <div class="container my-5">
         <div class="form-container">
-            <h2 class="text-center mb-4">Lengkapi Profil Anggota</h2>
-    @if(session('succes'))
-        <div class="alert alert-success">
-            {{ session ('success') }}
-        </div>
-    @endif 
-    @if ($errors -> any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif       
+            <h2 class="text-center mb-4">{{ isset($anggota) ? 'Edit Profil Anggota' : 'Lengkapi Profil Anggota' }}</h2>
+            
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif 
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif       
+
             <form action="{{ isset($anggota) ? route('anggota.update', $anggota->id) : '/simpan-anggota' }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if(isset($anggota))
@@ -46,63 +49,74 @@
                 <div class="mb-3">
                     <label for="nta" class="form-label">Nomor Tanda Anggota (NTA)</label>
                     <input type="text" class="form-control" id="nta" name="nta" placeholder="Contoh: 12345678"
-                    value="{{ isset($anggota) ? $anggota->nta : '' }}" required>
+                    value="{{ isset($anggota) ? $anggota->nta : old('nta') }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                     <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Masukkan nama lengkap"
-                    value="{{ isset($anggota) ? $anggota->nama_lengkap : '' }}" required>
+                    value="{{ isset($anggota) ? $anggota->nama_lengkap : old('nama_lengkap') }}" required>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required>
+                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" 
+                        value="{{ isset($anggota) ? $anggota->tempat_lahir : old('tempat_lahir') }}" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
+                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" 
+                        value="{{ isset($anggota) ? $anggota->tanggal_lahir : old('tanggal_lahir') }}" required>
                     </div>
                 </div>
 
+                @php $agama_terpilih = isset($anggota) ? $anggota->agama : old('agama'); @endphp
                 <div class="mb-3">
                     <label for="agama" class="form-label">Agama</label>
                     <select class="form-select" name="agama" id="agama" required>
-                        <option value="" selected disabled>Pilih Agama</option>
-                        <option value="Islam">Islam</option>
-                        <option value="Kristen">Kristen</option>
-                        <option value="Katolik">Katolik</option>
-                        <option value="Hindu">Hindu</option>
-                        <option value="Buddha">Buddha</option>
-                        <option value="Khonghucu">Khonghucu</option>
+                        <option value="" {{ $agama_terpilih == '' ? 'selected' : '' }} disabled>Pilih Agama</option>
+                        <option value="Islam" {{ $agama_terpilih == 'Islam' ? 'selected' : '' }}>Islam</option>
+                        <option value="Kristen" {{ $agama_terpilih == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                        <option value="Katolik" {{ $agama_terpilih == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                        <option value="Hindu" {{ $agama_terpilih == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                        <option value="Buddha" {{ $agama_terpilih == 'Buddha' ? 'selected' : '' }}>Buddha</option>
+                        <option value="Khonghucu" {{ $agama_terpilih == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+                    <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap" required>{{ isset($anggota) ? $anggota->alamat : old('alamat') }}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="pangkalan" class="form-label">Pangkalan</label>
-                        <input type="text" class="form-control" id="pangkalan" name="pangkalan" placeholder="Gugus Depan..." required>
+                        <input type="text" class="form-control" id="pangkalan" name="pangkalan" placeholder="Gugus Depan..." 
+                        value="{{ isset($anggota) ? $anggota->pangkalan : old('pangkalan') }}" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="ambalan" class="form-label">Ambalan</label>
-                        <input type="text" class="form-control" id="ambalan" name="ambalan" placeholder="Nama Ambalan..." required>
+                        <input type="text" class="form-control" id="ambalan" name="ambalan" placeholder="Nama Ambalan..." 
+                        value="{{ isset($anggota) ? $anggota->ambalan : old('ambalan') }}" required>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="sertifikat_sfh" class="form-label">Sertifikat SFH (PDF/Gambar)</label>
                     <input class="form-control" type="file" id="sertifikat_sfh" name="sertifikat_sfh">
+                    @if(isset($anggota) && $anggota->sertifikat_sfh)
+                        <small class="text-muted">Biarkan kosong jika tidak ingin mengubah file sertifikat.</small>
+                    @endif
                 </div>
 
                 <div class="mb-3">
                     <label for="foto_pramuka" class="form-label">Foto Pramuka (Seragam Lengkap)</label>
                     <input class="form-control" type="file" id="foto_pramuka" name="foto_pramuka">
+                    @if(isset($anggota) && $anggota->foto_pramuka)
+                        <small class="text-muted">Biarkan kosong jika tidak ingin mengubah foto.</small>
+                    @endif
                 </div>
 
                 <hr class="my-4">
