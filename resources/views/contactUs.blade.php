@@ -43,7 +43,7 @@
                 <div class="card-panitia shadow-sm">
                     <div class="p-4">
                         <div class="profile-wrapper mb-3">
-                            <img src="{{ asset('img/zahra.jpeg.jpeg') }}" alt="Admin Zahra">
+                            <img src="{{ asset('img/zahra.jpeg') }}" alt="Admin Zahra">
                         </div>
                         <div class="text-start mb-2">
                             <h5 class="fw-bold mb-1" style="font-size: 25px;">Kak Zahra</h5>
