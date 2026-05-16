@@ -115,7 +115,7 @@
                 </div>
                 <div class="d-grid mt-4 gap-2">
     
-            <a href="{{ route('anggota.edit', $anggota->id) }}" class="btn btn-warning fw-bold">
+            <a href="/edit-anggota/{{ $anggota->id }}" class="btn btn-warning fw-bold">
                 <i class="fas fa-edit me-2"></i>Edit Profil
             </a>
 </div>
