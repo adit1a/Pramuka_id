@@ -7,6 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -17,19 +18,13 @@
             object-fit: cover;
             width: 100%;
         }
-        .hero {
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-        .hero h1 { font-size: 2rem; font-weight: bold;}
-        .hero h2 { font-size: 1.2rem; margin-bottom: 15px;}
-        .card-form { border-radius: 15px; transition: transform 0.3s; height: 100%; }
-        .card-form:hover { transform: translateY(-5px); }
-
         @media (min-width: 768px) {
             .foto-ketua { max-height: 450px; width: auto; }
-            .hero h1 { font-size: 3rem; }
-            .hero h2 { font-size: 1.5rem; }
+        }
+        /* Perbaikan Navbar Menu di Layar HP */
+        @media (max-width: 576px) {
+            .nav-menu { font-size: 12px; gap: 10px; padding-left: 0; }
+            .logo { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -47,7 +42,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/form">Form</a></li>
                 <li><a href="/achievement">Achievement</a></li>
-                <li><a href="{{ url('/contactUs') }}" class="nav-link">Contact Us</a></li>
+                <li><a href="{{ url('/contactUs') }}">Contact Us</a></li>
                 <li>
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Log out
@@ -61,8 +56,8 @@
         @csrf
     </form>
 
-    <header class="hero bg-primary text-white position-relative">
-        <div class="hero-content container">
+    <header class="hero">
+        <div class="hero-content px-3">
             @auth
                 <h1>Halo, {{ Auth::user()->username }}! 👋</h1>
             @else
@@ -70,15 +65,15 @@
             @endauth
             
             <h2>Satu Pramuka, Untuk Satu Indonesia</h2>
-            <p class="pp mb-4">Mari kita bangun karakter pramuka yang kuat dan bermoral</p>
-            <a href="#main" class="btn btn-light rounded-pill px-4 py-2 fw-bold text-primary">Jelajahi Sekarang</a>
+            <p class="pp">Mari kita bangun karakter pramuka yang kuat dan bermoral</p>
+            <a href="#main" class="btn-hero">Jelajahi Sekarang</a>
         </div>
     </header>
 
     <main id="main">
-        <section class="headline py-5 text-center">
-            <h2 class="fw-bold">Kreatif, Inovatif, dan Berkarakter</h2>
-            <div class="line mx-auto bg-primary mt-2" style="width: 80px; height: 4px; border-radius: 2px;"></div>
+        <section class="headline px-3">
+            <h2>Kreatif, Inovatif, dan Berkarakter</h2>
+            <div class="line"></div>
         </section>
 
         <section class="py-4 py-md-5 bg-light">
@@ -90,22 +85,22 @@
 
                     <div class="col-lg-8 col-md-7" data-aos="fade-left">
                         <div class="ms-lg-4 text-center text-md-start">
-                            <h5 class="text-primary fw-bold mb-1 fs-6 fs-md-5">Sambutan</h5>
+                            <h5 class="text-warning fw-bold mb-1 fs-6 fs-md-5">Sambutan</h5>
                             <h3 class="fw-bold mb-3 mb-md-4 fs-4 fs-md-3">Ketua Kwarcab Kolaka Utara</h3>
 
                             <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 p-lg-5 text-start">
                                 <p class="fw-bold text-dark mb-2">Assalamu’alaikum Wr. Wb.</p>
-                                <p class="text-muted" style="text-align: justify; font-size: 15px;">
+                                <p class="text-muted text-justify" style="font-size: 15px;">
                                     Selamat datang di website Raimuna Cabang III Kolaka Utara. Raimuna bukan sekadar perkemahan biasa, melainkan forum pertemuan akbar yang dirancang penuh dengan kegiatan kreatif, produktif, dan inovatif. 
                                 </p>
-                                <p class="text-muted" style="text-align: justify; font-size: 15px;">
+                                <p class="text-muted text-justify" style="font-size: 15px;">
                                     Oleh karena itu, saya mengajak seluruh Pramuka Penegak dan Pramuka Pandega se-Kwartir Cabang Kolaka Utara untuk segera bergabung dan mendaftarkan diri. Raimuna adalah kesempatan emas bagi Kakak untuk memperluas jaringan persaudaraan antarsesama anggota Pramuka, meningkatkan keterampilan melalui berbagai zona edukasi praktis, serta menunjukkan potensi dan kreativitas terbaik generasi muda. 
                                 </p>
-                                <p class="text-muted" style="text-align: justify; font-size: 15px;">
+                                <p class="text-muted text-justify" style="font-size: 15px;">
                                     Kepada para Pembina, saya minta dukungan sepenuhnya untuk memfasilitasi keberangkatan kakak-kakak kita. Ayo persiapkan diri, fisik, dan mental kalian. Sampai jumpa di Raimuna Cabang III Kolaka Utara! Terima kasih.
                                 </p>
 
-                                <div class="mt-3 border-start border-4 border-primary ps-3">
+                                <div class="mt-3 border-start border-4 border-warning ps-3">
                                     <h6 class="fw-bold text-dark mb-1">Salam Pramuka!</h6>
                                     <p class="fw-bold text-dark mb-0" style="font-size: 14px;">Wassalamu’alaikum Wr. Wb.</p>
                                 </div>
@@ -116,66 +111,57 @@
             </div>
         </section>
 
-        <section class="parallax text-center py-5 bg-dark text-white shadow-sm" style="background: url('https://images.unsplash.com/photo-1504221507732-5246c045949b?q=80&w=1200') center/cover fixed;">
-            <div class="py-5" style="background-color: rgba(0,0,0,0.5);">
-                <h2 class="fw-bold display-5">Membangun Bangsa</h2>
-            </div>
+        <section class="parallax">
+            <div class="parallax-text text-center px-3">Membangun Bangsa</div>
         </section>
 
-        <section class="py-5">
-            <div class="container">
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-5">
-                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                            <img src="https://images.unsplash.com/photo-1504221507732-5246c045949b?q=80&w=500" class="card-img-top" alt="Kegiatan" style="height: 250px; object-fit: cover;">
-                            <div class="card-body p-4 text-center">
-                                <h4 class="fw-bold">Kegiatan Baru</h4>
-                                <p class="text-muted mb-0">Cek Agenda Perkemahan Terbaru di Sini.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-5">
-                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=500" class="card-img-top" alt="Materi" style="height: 250px; object-fit: cover;">
-                            <div class="card-body p-4 text-center">
-                                <h4 class="fw-bold">Materi Kepramukaan</h4>
-                                <p class="text-muted mb-0">Pelajari SKU, SKK, dan Sandi-sandi Digital</p>
-                            </div>
-                        </div>
-                    </div>
+        <section class="banner-area px-3">
+            <div class="card-hover">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1504221507732-5246c045949b?q=80&w=500" alt="Kegiatan">
                 </div>
+                <h3 class="mt-3">Kegiatan Baru</h3>
+                <p class="text-muted">Cek Agenda Perkemahan Terbaru di Sini.</p>
+            </div>
+
+            <div class="card-hover">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=500" alt="Materi">
+                </div>
+                <h3 class="mt-3">Materi Kepramukaan</h3>
+                <p class="text-muted">Pelajari SKU, SKK, dan Sandi-sandi Digital</p>
             </div>
         </section>
 
         <section class="ontopfoot py-5 bg-white">
-            <div class="container card-ontop shadow-sm p-4 p-md-5 rounded-4 border">
+            <div class="container card-ontop shadow-sm p-4 p-md-5">
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-12 text-center text-lg-start mb-4 mb-lg-0">
                         <div class="d-flex flex-column flex-lg-row align-items-center mb-4">
                             <img src="{{ asset('img/gambar.jpeg.jpeg') }}" alt="Logo" style="width: 80px;" class="me-lg-3 mb-3 mb-lg-0">
-                            <h3 class="fw-bold mb-0">Raimuna Cabang III Kolaka Utara</h3>
+                            <h4 class="fw-bold mb-0">Raimuna Cabang III Kolaka Utara</h4>
                         </div>
                         <h5 class="text-danger fw-bold">Sejarah Singkat</h5>
                         <h6 class="text-primary fw-bold small">Awal Mula</h6>
-                        <p class="text-muted small" style="text-align: justify;">Jambore adalah pertemuan besar Pramuka di alam terbuka yang diisi dengan kegiatan edukatif, rekreatif, dan produktif. Tradisi jambore berakar dari gerakan kepanduan dunia yang dipelopori oleh Lord Robert Baden-Powell melalui World Scout Jamboree pertama tahun 1920 di Olympia, London. Pertemuan itu melibatkan puluhan ribu pandu dari berbagai negara dan menjadi tonggak lahirnya jambore sebagai ajang silaturahmi dan pembelajaran kepanduan.</p>
+                        <p class="text-justify text-muted small">Jambore adalah pertemuan besar Pramuka di alam terbuka yang diisi dengan kegiatan edukatif, rekreatif, dan produktif. Tradisi jambore berakar dari gerakan kepanduan dunia yang dipelopori oleh Lord Robert Baden-Powell melalui World Scout Jamboree pertama tahun 1920 di Olympia, London. Pertemuan itu melibatkan puluhan ribu pandu dari berbagai negara dan menjadi tonggak lahirnya jambore sebagai ajang silaturahmi dan pembelajaran kepanduan.</p>
                     </div>
 
                     <div class="col-lg-4 col-md-6 text-center">
                         <div class="d-flex flex-column align-items-center mb-3">
-                            <div class="circle-icon bg-warning rounded-circle p-3 shadow-sm mb-2">
+                            <div class="circle-icon bg-orange shadow-sm">
                                 <i class="fas fa-binoculars fa-2x text-white"></i>
                             </div>
-                            <span class="badge bg-warning text-dark px-4 py-2 mt-2">VISI</span>
+                            <span class="badge bg-orange text-white px-4 py-2 mt-3">VISI</span>
                         </div>
                         <p class="fst-italic fw-bold small text-center px-lg-3">"TERWUJUDNYA PRAMUKA PENGGALANG SULAWESI TENGGARA YANG GEMBIRA, BERDAYA, DAN BERBUDAYA MELALUI PERTEMUAN BESAR JAMBORE DAERAH SEBAGAI WADAH PERSAUDARAAN, PENGEMBANGAN DIRI, SERTA PENGUATAN KARAKTER BANGSA."</p>
                     </div>
 
                     <div class="col-lg-4 col-md-6 text-center">
                         <div class="d-flex flex-column align-items-center mb-3">
-                            <div class="circle-icon bg-info rounded-circle p-3 shadow-sm mb-2">
+                            <div class="circle-icon bg-blue shadow-sm">
                                 <i class="fas fa-rocket fa-2x text-white"></i>
                             </div>
-                            <span class="badge bg-info text-dark px-4 py-2 mt-2">MISI</span>
+                            <span class="badge bg-blue text-white px-4 py-2 mt-3">MISI</span>
                         </div>
                         <ol class="text-start small text-muted ps-3 ms-4 ms-lg-0" style="display: inline-block; text-align: left;">
                             <li>Menumbuhkan keceriaan dan semangat kebersamaan.</li>
@@ -205,7 +191,7 @@
                                         <i class="fas fa-plus-circle float-end opacity-50 fs-4"></i>
                                         <h3 class="fw-bold mt-3">Form Peserta</h3>
                                         <p class="small mb-4">Formulir Pendaftaran Peserta</p>
-                                        <a href="https://forms.gle/JJYC4oHDv16N2iVY7" target="_blank" class="btn btn-light rounded-pill px-4 fw-bold text-dark w-100">Tolong Isi</a>
+                                        <a href="https://forms.gle/JJYC4oHDv16N2iVY7" target="_blank" class="btn btn-light btn-isi rounded-pill px-4 fw-bold w-100">Tolong Isi</a>
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +201,7 @@
                                         <i class="fas fa-plus-circle float-end opacity-50 fs-4"></i>
                                         <h3 class="fw-bold mt-3">Form Pembina</h3>
                                         <p class="small mb-4">Formulir Pendaftaran Pembina</p>
-                                        <a href="https://forms.gle/CXhzRsbiAcAeJiy96" target="_blank" class="btn btn-light rounded-pill px-4 fw-bold text-dark w-100">ISI FORMULIR</a>
+                                        <a href="https://forms.gle/CXhzRsbiAcAeJiy96" target="_blank" class="btn btn-light btn-isi rounded-pill px-4 fw-bold w-100">ISI FORMULIR</a>
                                     </div>
                                 </div>
                             </div>
@@ -269,10 +255,14 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-center text-white py-4 mt-auto">
+    <footer>
         <p class="mb-0 small">&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+    </script>
 </body>
 </html>
