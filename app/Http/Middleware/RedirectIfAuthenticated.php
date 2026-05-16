@@ -27,4 +27,6 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
+
+    public const HOME = '/beranda';
 }
