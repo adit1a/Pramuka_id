@@ -15,10 +15,8 @@ use App\Models\Anggota;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
-    return redirect('/login');
-});
-Route::get('/beranda', function () {
     return view('beranda');
 })->middleware('auth');
 
