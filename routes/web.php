@@ -16,10 +16,11 @@ use App\Models\Anggota;
 |
 */
 
-Route::get('/', function () {
+Route::get('/beranda', function () {
     return view('beranda');
 })->middleware('auth');
 
+Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 
 
 Route::get('/form', function () {
@@ -52,7 +53,7 @@ Route::get('/form', function (){
 
 Route::post('/simpan-anggota', [AnggotaController::class, 'store']);
 
-Route::get('/', function(){
+Route::get('/beranda', function(){
     $anggota = Anggota::first();
     return view('beranda', compact('anggota'));
 });
