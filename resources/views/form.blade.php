@@ -15,7 +15,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="logo">Pramuka_Id ⚜️</div>
             <ul class="nav-links">
-                <li><a href="/">Kembali ke Beranda</a></li>
+                <li><a href="/beranda">Kembali ke Beranda</a></li>
             </ul>
         </div>
     </nav>

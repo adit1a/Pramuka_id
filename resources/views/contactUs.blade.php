@@ -13,7 +13,7 @@
             Pramuka_Id ⚜️
         </h5>
         <div class="back-wrapper">
-            <a href="{{ url('/') }}" class="text-decoration-none back-link-header">
+            <a href="{{ url('/beranda') }}" class="text-decoration-none back-link-header">
                 Kembali ke Beranda
             </a>
         </div>
