@@ -97,7 +97,7 @@ return redirect('/verify')->with('success', 'Pendaftaran berhasil! Yuk masukkan 
         $request->session()->regenerate();
         
         // Kalau berhasil, langsung ke Beranda!
-        return redirect()->intended('/beranda');
+        return redirect()->intended('beranda');
     }
 
     // Kalau gagal, balik ke login dengan pesan sedih
