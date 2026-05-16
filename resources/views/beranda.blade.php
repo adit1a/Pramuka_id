@@ -58,7 +58,45 @@
             <h2>Kreatif, Inovatif, dan Berkarakter</h2>
             <div class="line"></div>
         </section>
+       <section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <div class="col-lg-4 col-md-5 mb-4 mb-md-0 text-center" data-aos="fade-right">
+                <img src="{{ asset('img/ketua.png') }}" alt="Ketua Kwarcab Kolaka Utara" class="img-fluid rounded-4 shadow" style="max-height: 450px; object-fit: cover;">
+            </div>
 
+            <div class="col-lg-8 col-md-7" data-aos="fade-left">
+                <div class="ms-lg-4">
+                    <h5 class="text-primary fw-bold mb-1">Sambutan</h5>
+                    <h3 class="fw-bold mb-4">Ketua Kwarcab Kolaka Utara</h3>
+
+                    <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5">
+                        <p class="fw-bold text-dark">Assalamu’alaikum Wr. Wb.</p>
+                        
+                        <p class="text-muted" style="text-align: justify;">
+                            Selamat datang di website Raimuna Cabang III Kolaka Utara. Raimuna bukan sekadar perkemahan biasa, melainkan forum pertemuan akbar yang dirancang penuh dengan kegiatan kreatif, produktif, dan inovatif. 
+                        </p>
+                        
+                        <p class="text-muted" style="text-align: justify;">
+                            Oleh karena itu, saya mengajak seluruh Pramuka Penegak dan Pramuka Pandega se-Kwartir Cabang Kolaka Utara untuk segera bergabung dan mendaftarkan diri. Raimuna adalah kesempatan emas bagi Kakak untuk memperluas jaringan persaudaraan antarsesama anggota Pramuka, meningkatkan keterampilan melalui berbagai zona edukasi praktis, serta menunjukkan potensi dan kreativitas terbaik generasi muda. 
+                        </p>
+                        
+                        <p class="text-muted" style="text-align: justify;">
+                            Kepada para Pembina, saya minta dukungan sepenuhnya untuk memfasilitasi keberangkatan kakak-kakak kita. Ayo persiapkan diri, fisik, dan mental kalian. Sampai jumpa di Raimuna Cabang III Kolaka Utara! Terima kasih.
+                        </p>
+
+                        <div class="mt-4 border-start border-4 border-primary ps-3">
+                            <h5 class="fw-bold text-dark mb-1">Salam Pramuka!</h5>
+                            <p class="fw-bold text-dark mb-0">Wassalamu’alaikum Wr. Wb.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
         <section class="parallax">
             <div class="parallax-text">Membangun Bangsa</div>
         </section>
