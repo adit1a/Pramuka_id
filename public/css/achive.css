@@ -24,3 +24,10 @@
 }
 .bg-success-subtle { background-color: #dcfce7; }
 .bg-info-subtle { background-color: #e0f2fe; }
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}

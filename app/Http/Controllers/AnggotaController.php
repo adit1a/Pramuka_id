@@ -16,47 +16,53 @@ class AnggotaController extends Controller
 
         $data = $request->all();
 
+        // 1. Amankan Foto Pramuka (Ubah ke Base64 untuk Vercel)
         if($request->hasFile('foto_pramuka')){ 
-            $fotoNama = time(). ' _foto.' . $request->foto_pramuka->extension();
-            $request->foto_pramuka->move(public_path('uploads/foto'), $fotoNama);
-            $data['foto_pramuka']=$fotoNama;
+            $file = $request->file('foto_pramuka');
+            $base64 = base64_encode(file_get_contents($file));
+            $data['foto_pramuka'] = 'data:' . $file->getClientMimeType() . ';base64,' . $base64;
         }
 
+        // 2. Amankan Sertifikat (Typo extension sudah diperbaiki)
         if($request->hasFile('sertifikat_sfh')){
-            $sertiNama=time(). ' _sertif. ' .$request->sertifikat_sfhextension();
-            $request->sertifikat_sfh->move(public_path('uploads/sertifikat'), $sertiNama);
-            $data['sertifikat_sfh']=$sertiNama;
+            $fileSertif = $request->file('sertifikat_sfh');
+            $base64Sertif = base64_encode(file_get_contents($fileSertif));
+            $data['sertifikat_sfh'] = 'data:' . $fileSertif->getClientMimeType() . ';base64,' . $base64Sertif;
         }
 
         Anggota::create($data);
 
-        return back()->with('success', ' data anggota berhasil disimpan⚜️');
+        return back()->with('success', 'Data anggota berhasil disimpan ⚜️');
     }
 
     public function edit($id)
     {
-    
-    $anggota = Anggota::findOrFail($id);
-    return view('form', compact('anggota'));
-
+        $anggota = Anggota::findOrFail($id);
+        return view('form', compact('anggota'));
     }
+
     public function update(Request $request, $id)
     {
-    
         $anggota = Anggota::findOrFail($id);
         $data = $request->all();
 
+        // 3. Amankan Foto Pramuka saat Update Data
         if ($request->hasFile('foto_pramuka')) {
-        $file = $request->file('foto_pramuka');
-        $nama_file = time() . "_" . $file->getClientOriginalName();
-        $file->move(public_path('uploads/foto'), $nama_file);
-        $data['foto_pramuka'] = $nama_file;
+            $file = $request->file('foto_pramuka');
+            $base64 = base64_encode(file_get_contents($file));
+            $data['foto_pramuka'] = 'data:' . $file->getClientMimeType() . ';base64,' . $base64;
         }
 
-    
+        // 4. Tambahan: Amankan Sertifikat saat Update Data (sebelumnya belum ada di kodemu)
+        if($request->hasFile('sertifikat_sfh')){
+            $fileSertif = $request->file('sertifikat_sfh');
+            $base64Sertif = base64_encode(file_get_contents($fileSertif));
+            $data['sertifikat_sfh'] = 'data:' . $fileSertif->getClientMimeType() . ';base64,' . $base64Sertif;
+        }
+
         $anggota->update($data);
 
-    
-        return redirect('/')->with('success', 'Profil kamu berhasil diperbarui! ✨');
+        // Arahkan kembali ke /beranda setelah selesai edit
+        return redirect('/beranda')->with('success', 'Profil kamu berhasil diperbarui! ✨');
     }
 }

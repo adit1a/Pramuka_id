@@ -90,38 +90,5 @@
         </div>
 
     </main>
-
-<footer>
-    <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
-</footer>
-    <!-- Library HTML5-QRCode -->
-<script src="https://unpkg.com/html5-qrcode"></script>
-
-<script>
-    function onScanSuccess(decodedText, decodedResult) {
-        // Asumsi format data QR: Nama Kegiatan|Kategori|Achievement
-        // Contoh: Jambore|Organisasi|Peserta Aktif
-        const data = decodedText.split('|');
-        
-        if(data.length === 3) {
-            document.getElementById('qr_event_name').value = data[0];
-            document.getElementById('qr_category').value = data[1];
-            document.getElementById('qr_achievement').value = data[2];
-            
-            document.getElementById('result').innerText = "Berhasil Memindai: " + data[0];
-            
-            // Hentikan kamera dan kirim form
-            html5QrcodeScanner.clear();
-            document.getElementById('qr-form').submit();
-        } else {
-            alert("Format QR Code tidak sesuai (Gunakan format: Nama|Kategori|Achievement)");
-        }
-    }
-
-    let html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader", { fps: 10, qrbox: 250 }
-    );
-    html5QrcodeScanner.render(onScanSuccess);
-</script>
 </body>
 </html>
