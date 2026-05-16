@@ -23,7 +23,7 @@
                 Pramuka_Id ⚜️
             </h2>
             <div class="back-wrapper">
-                <a href="{{ url('/') }}" class="text-decoration-none back-link-header">
+                <a href="{{ url('/beranda') }}" class="text-decoration-none back-link-header">
                     Kembali ke Beranda
                 </a>
             </div>
@@ -91,30 +91,11 @@
 
     </main>
 
-    <!-- AOS Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true });
-    </script>
+<footer>
+    <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
+</footer>
     <!-- Library HTML5-QRCode -->
 <script src="https://unpkg.com/html5-qrcode"></script>
-
-<div class="card p-4 mb-4 border-2 border-dark rounded-4">
-    <h5 class="fw-bold mb-3"><i class="fas fa-camera me-2"></i> Scan QR Code Kegiatan</h5>
-    
-    <!-- Area Kamera -->
-    <div id="reader" style="width: 100%; max-width: 500px; margin: auto;" class="rounded-3 overflow-hidden"></div>
-    
-    <!-- Form Tersembunyi untuk Kirim Data ke Controller -->
-    <form id="qr-form" action="{{ route('process.scan') }}" method="POST" style="display: none;">
-        @csrf
-        <input type="hidden" name="event_name" id="qr_event_name">
-        <input type="hidden" name="category" id="qr_category">
-        <input type="hidden" name="achievement" id="qr_achievement">
-    </form>
-    
-    <div id="result" class="mt-3 text-center fw-bold text-success"></div>
-</div>
 
 <script>
     function onScanSuccess(decodedText, decodedResult) {
