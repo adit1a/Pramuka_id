@@ -40,7 +40,7 @@
                 </div>
             @endif       
 
-            <form action="{{ isset($anggota) ? route('anggota.update', $anggota->id) : '/simpan-anggota' }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ isset($anggota) ? '/update-anggota/'.$anggota->id : '/simpan-anggota' }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if(isset($anggota))
                   @method('PUT')
