@@ -41,7 +41,6 @@
             <ul class="nav-menu mb-0">
                 <li><a href="/">Home</a></li>
                 <li><a href="/form">Form</a></li>
-                <li><a href="/achievement">Achievement</a></li>
                 <li><a href="{{ url('/contactUs') }}">Contact Us</a></li>
                 <li>
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -304,71 +303,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script>
-        AOS.init({ once: true });
-
-        // Logika Scanner QR Code
-        let html5QrCode;
-        const qrForm = document.getElementById('qr-form-beranda');
-
-        window.onload = () => {
-            html5QrCode = new Html5Qrcode("reader");
-        };
-
-        function startScanner() {
-            document.getElementById('reader').style.display = 'block';
-            document.getElementById('stop-scan').style.display = 'inline-block';
-
-            const qrCodeSuccessCallback = (decodedText) => {
-                handleScanResult(decodedText);
-                stopScanner();
-            };
-
-            const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-            html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback)
-            .catch(err => alert("Gagal membuka kamera: " + err));
-        }
-
-        const fileInput = document.getElementById('qr-input-file');
-        fileInput.addEventListener('change', e => {
-            if (e.target.files.length == 0) return;
-
-            const imageFile = e.target.files[0];
-            html5QrCode.scanFile(imageFile, true)
-                .then(decodedText => {
-                    handleScanResult(decodedText);
-                })
-                .catch(err => {
-                    alert("QR Code tidak ditemukan pada gambar. Pastikan gambar jelas.");
-                    console.error(err);
-                });
-        });
-
-        function handleScanResult(decodedText) {
-            const data = decodedText.split('|');
-
-            if(data.length === 3) {
-                document.getElementById('beranda_event_name').value = data[0];
-                document.getElementById('beranda_category').value = data[1];
-                document.getElementById('beranda_achievement').value = data[2];
-
-                alert("Berhasil membaca data: " + data[0]);
-                qrForm.submit();
-            } else {
-                alert("Format QR tidak valid! Gunakan pemisah '|' (Contoh: Lomba|Teknis|Juara)");
-            }
-        }
-
-        function stopScanner() {
-            if (html5QrCode && html5QrCode.isScanning) {
-                html5QrCode.stop().then(() => {
-                    document.getElementById('reader').style.display = 'none';
-                    document.getElementById('stop-scan').style.display = 'none';
-                });
-            }
-        }
-    </script>
 </body>
 </html>
