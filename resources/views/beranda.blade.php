@@ -76,40 +76,47 @@
             <div class="line"></div>
         </section>
 
-        <section class="py-4 py-md-5 bg-light">
-            <div class="container px-3 px-md-4">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 col-md-5 mb-4 mb-md-0 text-center" data-aos="fade-right">
-                        <img src="{{ asset('img/ketua.jpeg') }}" alt="Ketua Kwarcab Kolaka Utara" class="img-fluid rounded-4 shadow foto-ketua">
-                    </div>
+       <section class="py-4 py-md-5 bg-light">
+    <div class="container px-3 px-md-4">
+        
+        <div class="row mb-3 mb-md-4 text-center text-md-start">
+            <div class="col-12 ps-md-4">
+                <h5 class="text-warning fw-bold mb-1 fs-6 fs-md-5">Sambutan</h5>
+                <h3 class="fw-bold fs-4 fs-md-3">Ketua Kwarcab Kolaka Utara</h3>
+            </div>
+        </div>
 
-                    <div class="col-lg-8 col-md-7" data-aos="fade-left">
-                        <div class="ms-lg-4 text-center text-md-start">
-                            <h5 class="text-warning fw-bold mb-1 fs-6 fs-md-5">Sambutan</h5>
-                            <h3 class="fw-bold mb-3 mb-md-4 fs-4 fs-md-3">Ketua Kwarcab Kolaka Utara</h3>
+        <div class="row align-items-start">
+            
+            <div class="col-lg-4 col-md-5 mb-4 mb-md-0 text-center" data-aos="fade-right">
+                <img src="{{ secure_asset('img/ketua.jpeg') }}" alt="Ketua Kwarcab Kolaka Utara" class="img-fluid rounded-4 shadow foto-ketua">
+            </div>
 
-                            <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 p-lg-5 text-start">
-                                <p class="fw-bold text-dark mb-2">Assalamu’alaikum Wr. Wb.</p>
-                                <p class="text-muted text-justify" style="font-size: 15px;">
-                                    Selamat datang di website Raimuna Cabang III Kolaka Utara. Raimuna bukan sekadar perkemahan biasa, melainkan forum pertemuan akbar yang dirancang penuh dengan kegiatan kreatif, produktif, dan inovatif. 
-                                </p>
-                                <p class="text-muted text-justify" style="font-size: 15px;">
-                                    Oleh karena itu, saya mengajak seluruh Pramuka Penegak dan Pramuka Pandega se-Kwartir Cabang Kolaka Utara untuk segera bergabung dan mendaftarkan diri. Raimuna adalah kesempatan emas bagi Kakak untuk memperluas jaringan persaudaraan antarsesama anggota Pramuka, meningkatkan keterampilan melalui berbagai zona edukasi praktis, serta menunjukkan potensi dan kreativitas terbaik generasi muda. 
-                                </p>
-                                <p class="text-muted text-justify" style="font-size: 15px;">
-                                    Kepada para Pembina, saya minta dukungan sepenuhnya untuk memfasilitasi keberangkatan kakak-kakak kita. Ayo persiapkan diri, fisik, dan mental kalian. Sampai jumpa di Raimuna Cabang III Kolaka Utara! Terima kasih.
-                                </p>
+            <div class="col-lg-8 col-md-7" data-aos="fade-left">
+                <div class="ms-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 p-3 p-md-4 p-lg-5 text-start">
+                        <p class="fw-bold text-dark mb-2">Assalamu’alaikum Wr. Wb.</p>
+                        <p class="text-muted text-justify" style="font-size: 15px;">
+                            Selamat datang di website Raimuna Cabang III Kolaka Utara. Raimuna bukan sekadar perkemahan biasa, melainkan forum pertemuan akbar yang dirancang penuh dengan kegiatan kreatif, produktif, dan inovatif. 
+                        </p>
+                        <p class="text-muted text-justify" style="font-size: 15px;">
+                            Oleh karena itu, saya mengajak seluruh Pramuka Penegak dan Pramuka Pandega se-Kwartir Cabang Kolaka Utara untuk segera bergabung dan mendaftarkan diri. Raimuna adalah kesempatan emas bagi Kakak untuk memperluas jaringan persaudaraan antarsesama anggota Pramuka, meningkatkan keterampilan melalui berbagai zona edukasi praktis, serta menunjukkan potensi dan kreativitas terbaik generasi muda. 
+                        </p>
+                        <p class="text-muted text-justify" style="font-size: 15px;">
+                            Kepada para Pembina, saya minta dukungan sepenuhnya untuk memfasilitasi keberangkatan kakak-kakak kita. Ayo persiapkan diri, fisik, dan mental kalian. Sampai jumpa di Raimuna Cabang III Kolaka Utara! Terima kasih.
+                        </p>
 
-                                <div class="mt-3 border-start border-4 border-warning ps-3">
-                                    <h6 class="fw-bold text-dark mb-1">Salam Pramuka!</h6>
-                                    <p class="fw-bold text-dark mb-0" style="font-size: 14px;">Wassalamu’alaikum Wr. Wb.</p>
-                                </div>
-                            </div>
+                        <div class="mt-3 border-start border-4 border-warning ps-3">
+                            <h6 class="fw-bold text-dark mb-1">Salam Pramuka!</h6>
+                            <p class="fw-bold text-dark mb-0" style="font-size: 14px;">Wassalamu’alaikum Wr. Wb.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            
+        </div>
+    </div>
+</section>
 
         <section class="parallax">
             <div class="parallax-text text-center px-3">Membangun Bangsa</div>
