@@ -212,47 +212,6 @@
 
         <script src="https://unpkg.com/html5-qrcode"></script>
 
-        <section class="scan-achievement py-5 bg-white">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="card shadow border-0 text-center p-4" style="border-radius: 25px;">
-                            <div class="card-body">
-                                <div class="icon-scan mb-3">
-                                    <i class="fas fa-qrcode fa-4x text-primary"></i>
-                                </div>
-                                <h3 class="fw-bold">Scan Achievement</h3>
-                                <p class="text-muted">Dekatkan kamera ke QR Code kegiatan untuk mencatat kehadiran atau pencapaianmu.</p>
-                                
-                                <button class="btn btn-primary btn-lg rounded-pill px-5 fw-bold" onclick="startScanner()">
-                                    <i class="fas fa-camera me-2"></i> Buka Kamera
-                                </button>
-                                <div class="mb-3 mt-3">
-                                    <span class="badge bg-light text-muted">ATAU</span>
-                                </div>
-                                <div class="mx-auto" style="max-width: 300px;">
-                                    <label for="qr-input-file" class="form-label small fw-bold text-muted">Upload Gambar QR dari Galeri</label>
-                                    <input type="file" id="qr-input-file" accept="image/*" class="form-control form-control-sm rounded-pill">
-                                </div>
-                                <div id="reader" class="mt-4 shadow-sm mx-auto" style="display:none; border-radius: 15px; overflow: hidden; max-width: 100%;"></div>
-                                
-                                <button id="stop-scan" class="btn btn-danger mt-3 rounded-pill" style="display:none;" onclick="stopScanner()">
-                                    Tutup Kamera
-                                </button>
-
-                                <form id="qr-form-beranda" action="{{ route('process.scan') }}" method="POST" style="display: none;">
-                                    @csrf
-                                    <input type="hidden" name="event_name" id="beranda_event_name">
-                                    <input type="hidden" name="category" id="beranda_category">
-                                    <input type="hidden" name="achievement" id="beranda_achievement">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarProfil" aria-labelledby="sidebarProfilLabel">
