@@ -89,7 +89,7 @@
         <div class="row align-items-start">
             
             <div class="col-lg-4 col-md-5 mb-4 mb-md-0 text-center" data-aos="fade-right">
-                <img src="{{ secure_asset('img/ketua.jpeg') }}" alt="Ketua Kwarcab Kolaka Utara" class="img-fluid rounded-4 shadow foto-ketua">
+                <img src="{{ secure_asset('img/Ketua.png') }}" alt="Ketua Kwarcab Kolaka Utara" class="img-fluid rounded-4 shadow foto-ketua">
             </div>
 
             <div class="col-lg-8 col-md-7" data-aos="fade-left">
