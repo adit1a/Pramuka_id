@@ -163,7 +163,6 @@ body {
 
 .card-img img {
     width: 100%;
-    height: 180px;
     object-fit: cover;
     border-radius: 8px;
 }
@@ -252,3 +251,12 @@ footer {
 #reader__status_span {
     font-size: 12px;
 }
+.foto-ketua{
+    max-height: 200px;
+}
+@media (min-width: 768px) {
+        .foto-ketua { 
+            max-height: 450px; 
+            width: auto; 
+        }
+    }
