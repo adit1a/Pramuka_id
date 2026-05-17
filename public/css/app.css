@@ -252,7 +252,7 @@ footer {
     font-size: 12px;
 }
 .foto-ketua{
-    max-height: 200px;
+    max-height: 300px;
 }
 @media (min-width: 768px) {
         .foto-ketua { 
