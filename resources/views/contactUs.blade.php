@@ -8,15 +8,17 @@
 <!-- Header Navigasi -->
 <nav class="nav-header">
     <div class="container-fluid d-flex justify-content-between align-items-center px-4">
-        <div class="header-spacer d-none d-lg-block"></div>
-        <h5 class="mb-0 fw-bold text-white project-title">
-            Pramuka_Id ⚜️
+        
+        <h5 class="mb-0 fw-bold text-white project-title me-auto">
+            RAIMUNA CABANG III ⚜️
         </h5>
+        
         <div class="back-wrapper">
             <a href="{{ url('/beranda') }}" class="text-decoration-none back-link-header">
                 Kembali ke Beranda
             </a>
         </div>
+
     </div>
 </nav>
 
@@ -80,9 +82,9 @@
     </div>
 </main>
 
-<footer>
-    <p>&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
-</footer>
+    <footer>
+        <p class="mb-0 small">&copy; 2026 RAIMUNA CABANG III Kolaka Utara - Sulawesi Tenggara ✨</p>
+    </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>

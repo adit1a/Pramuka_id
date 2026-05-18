@@ -12,20 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('anggotas', function (Blueprint $table) {
-            $table-> id();
-            $table-> string('nta')->unique();
-            $table-> string('nama_lengkap');
-            $table-> string('tempat_lahir');
-            $table-> date('tanggal_lahir');
-            $table-> string('agama');
-            $table-> text('alamat');
-            $table-> string('pangkalan');
-            $table-> string('ambalan');
-            $table-> string('sertifikat_sfh')->nullable();
-            $table-> string('foto_pramuka')->nullable();
+            $table->id();
+            $table->integer('nta')->unique();
+            $table->string('nama_lengkap');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
+            $table->string('agama');
+            $table->text('alamat');
+            $table->string('pangkalan');
+            $table->string('ambalan');
+            $table->longText('sertifikat_sfh')->nullable();
+            $table->longText('foto_pramuka')->nullable();
             $table->timestamps();
-            
-
         });
     }
 

@@ -71,3 +71,9 @@ body {
     box-shadow: none;
     border-color: #3498db;
 }
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}

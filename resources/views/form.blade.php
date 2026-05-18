@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar-custom">
         <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo">Pramuka_Id ⚜️</div>
+            <div class="logo">RAIMUNA CABANG III ⚜️</div>
             <ul class="nav-links">
                 <li><a href="/beranda">Kembali ke Beranda</a></li>
             </ul>
@@ -134,6 +134,9 @@
             </form>
         </div>
     </div>
+    <footer>
+        <p class="mb-0 small">&copy; 2026 RAIMUNA CABANG III Kolaka Utara - Sulawesi Tenggara ✨</p>
+    </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     

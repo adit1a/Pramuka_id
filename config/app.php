@@ -144,6 +144,10 @@ return [
         // 'store' => 'redis',
     ],
 
+    'path' => env('APP_ENV') === 'production' 
+            ? '/tmp/storage/framework/sessions' 
+            : storage_path('framework/sessions'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

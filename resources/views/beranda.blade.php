@@ -32,7 +32,7 @@
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="nav-left">
-                <div class="logo">Pramuka_Id <span>⚜️</span></div>
+                <div class="logo">RAIMUNA CABANG III <span>⚜️</span></div>
                 <button class="btn-sidebar-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarProfil">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -41,7 +41,6 @@
             <ul class="nav-menu mb-0">
                 <li><a href="/">Home</a></li>
                 <li><a href="/form">Form</a></li>
-                <li><a href="/achievement">Achievement</a></li>
                 <li><a href="{{ url('/contactUs') }}">Contact Us</a></li>
                 <li>
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -89,7 +88,7 @@
         <div class="row align-items-start">
             
             <div class="col-lg-4 col-md-5 mb-4 mb-md-0 text-center" data-aos="fade-right">
-                <img src="{{ secure_asset('img/Ketua.png') }}" alt="Ketua Kwarcab Kolaka Utara" class="img-fluid rounded-4 shadow foto-ketua">
+                <img src="{{ asset('img/Ketua.png') }}" alt="Ketua Kwarcab Kolaka Utara" class="img-fluid rounded-4 shadow Foto-ketua">
             </div>
 
             <div class="col-lg-8 col-md-7" data-aos="fade-left">
@@ -212,6 +211,36 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="card-form shadow-sm text-white p-4" style="background-color: #f504ad;">
+                                    <div class="text-center">
+                                        <i class="fas fa-plus-circle float-end opacity-50 fs-4"></i>
+                                        <h3 class="fw-bold mt-3" style="text-align: center;"> Form Kesediaan Dokumen</h3>
+                                        <p class="small mb-4">DOKUMEN</p>
+                                        <a href="https://forms.gle/k6yzFvpxXvbkFjGE8" target="_blank" class="btn btn-light btn-isi rounded-pill px-4 fw-bold w-100">ISI FORMULIR</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="card-form shadow-sm text-white p-4" style="background-color: #01ff0e;">
+                                    <div class="text-center">
+                                        <i class="fas fa-plus-circle float-end opacity-50 fs-4"></i>
+                                        <h3 class="fw-bold mt-3 text-center">Form Kesediaan Pangkalan</h3>
+                                        <p class="small mb-4">DOKUMEN</p>
+                                        <a href="https://forms.gle/hJwMzY77LW3zoanc7" target="_blank" class="btn btn-light btn-isi rounded-pill px-4 fw-bold w-100">ISI FORMULIR</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="card-form shadow-sm text-white p-4" style="background-color: #e0ee18;">
+                                    <div class="text-center">
+                                        <i class="fas fa-plus-circle float-end opacity-50 fs-4"></i>
+                                        <h3 class="fw-bold mt-3">Kirim Bukti</h3>
+                                        <p class="small mb-4">Pembayaran Di Sini</p>
+                                        <a href="https://forms.gle/niR3MbPePG8rdxbL7" target="_blank" class="btn btn-light btn-isi rounded-pill px-4 fw-bold w-100">ISI FORMULIR</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,15 +257,16 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-            @if($anggota)
-                <div class="text-center mb-4">
-                    <img src="{{ asset('uploads/foto/' . $anggota->foto_pramuka) }}" 
-                         class="rounded-circle img-thumbnail shadow-sm"
-                         style="width:150px; height:150px; object-fit:cover;"
-                         alt="Foto profil">
-                    <h4 class="mt-3 fw-bold">{{ $anggota->nama_lengkap }}</h4>
-                    <span class="badge bg-secondary px-3">{{ $anggota->nta }}</span>
-                </div>
+             @if($anggota)
+            <div class="text-center mb-4">
+            <img src="{{ $anggota->foto_pramuka }}" 
+                 class="rounded-circle img-thumbnail shadow-sm"
+                 style="width:150px; height:150px; object-fit:cover;"
+                 alt="Foto profil">
+            
+            <h4 class="mt-3 fw-bold">{{ $anggota->nama_lengkap }}</h4>
+            <span class="badge bg-secondary px-3">{{ $anggota->nta }}</span>
+        </div>
 
                 <ul class="list-group list-group-flush small">
                     <li class="list-group-item"><strong>TTL:</strong> {{ $anggota->tempat_lahir }}, {{ $anggota->tanggal_lahir }}</li>
@@ -266,7 +296,7 @@
     </div>
 
     <footer>
-        <p class="mb-0 small">&copy; 2026 Pramuka_Id - Sulawesi Tenggara. Dibuat dengan senang dan gembira tanpa paksaan ✨</p>
+        <p class="mb-0 small">&copy; 2026 RAIMUNA CABANG III Kolaka Utara - Sulawesi Tenggara ✨</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
